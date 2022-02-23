@@ -54,9 +54,9 @@
         position: absolute;
 
         content: "";
-        top: 1%;
+        top: 1.5%;
         right: 3%;
-        bottom: 0;
+        bottom: 1.5;
         left: 2.5%;
       }
 
@@ -102,6 +102,13 @@
         to {
           opacity: 1;
           transform: translateY(0);
+        }
+      }
+         @media only screen and (max-width: 488px) {
+        h1 {
+          white-space: nowrap;
+
+          font-size: clamp(0.9rem, 3vw + 0.9rem, 3rem);
         }
       }
     </style>
