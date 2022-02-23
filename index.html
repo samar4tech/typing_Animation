@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing_Animation</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --clr-neon: hsl(317 100% 54%);
+        --clr-bg: hsl(323 21% 16%);
+        --cursor_speed: 10s;
+        --total_char: 26;
+      }
+
+      body {
+        font-family: "Source Sans Pro", sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        background-color: var(--clr-bg);
+      }
+
+      h1 {
+        font-family: "Source Code Pro", monospace;
+        font-size: clamp(1rem, 3vw + 1rem, 4rem);
+        position: relative;
+        width: fit-content;
+        border: 0.1em solid var(--clr-neon);
+        border-radius: 1em;
+        padding: 0 1em;
+        text-shadow: 0 0 1.2em var(--clr-neon);
+        box-shadow: 0 0 1.2em var(--clr-neon);
+        color: blanchedalmond;
+      }
+
+      h1::before,
+      h1::after {
+        position: absolute;
+
+        content: "";
+        top: 1%;
+        right: 3%;
+        bottom: 0;
+        left: 2.5%;
+      }
+
+      h1::before {
+        background-color: var(--clr-bg);
+        animation: forward_move var(--cursor_speed) steps(var(--total_char))
+          forwards;
+      }
+
+      @keyframes forward_move {
+        from {
+          left: 1em;
+        }
+        to {
+          left: 96%;
+        }
+      }
+
+      h1::after {
+        width: 0.15em;
+        background-color: blanchedalmond;
+        animation: forward_move var(--cursor_speed) steps(var(--total_char))
+            forwards,
+          blinking 800ms steps(25) infinite;
+      }
+
+      @keyframes blinking {
+        to {
+          background-color: transparent;
+        }
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        font-weight: 400;
+        color: blanchedalmond;
+        opacity: 0;
+        transform: translateY(3rem);
+        animation: popping_p 2s ease calc(var(--cursor_speed) + 1s) forwards;
+      }
+
+      @keyframes popping_p {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to NextGenDev.Org</h1>
+    <br />
+    <p class="subtitle">Hello,I'm Samar.How can I help you?</p>
+  </body>
+</html>
